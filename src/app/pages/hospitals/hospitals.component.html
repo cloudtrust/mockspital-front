@@ -1,5 +1,10 @@
 <div class="row">
   <nb-card>
-    <nb-card-body>Hospitals body</nb-card-body>
+    <nb-card-header>
+        Hospitals
+    </nb-card-header>
+    <nb-card-body>
+      <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    </nb-card-body>
   </nb-card>
 </div>

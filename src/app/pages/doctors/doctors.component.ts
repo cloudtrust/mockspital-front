@@ -7,6 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorsComponent implements OnInit {
 
+  settings = {
+    columns: {
+      id: {
+        title: 'ID'
+      },
+      firstName: {
+        title: 'First name'
+      },
+      lastName: {
+        title: 'Last name'
+      },
+      departments: {
+        title: 'Department ID',
+        valuePrepareFunction: function(d) {
+          return d[0]["id"];
+        }
+      }
+    },
+    attr: {
+      class: 'table table-bordered table-striped table-hover table-sm'
+    }
+  };
+
+  data = [];
+  
   constructor() { }
 
   ngOnInit() {

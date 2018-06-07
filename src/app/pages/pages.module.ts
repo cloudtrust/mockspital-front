@@ -11,12 +11,15 @@ import { DoctorsComponent } from './doctors/doctors.component';
 import { PatientsComponent } from './patients/patients.component';
 import { FilesComponent } from './files/files.component';
 
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
 
 @NgModule({
   imports: [
+    Ng2SmartTableModule,
     PagesRoutingModule,
     ThemeModule,
     DashboardModule,
