@@ -3,35 +3,35 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'ngx-doctors',
   templateUrl: './doctors.component.html',
-  styleUrls: ['./doctors.component.scss']
+  styleUrls: ['./doctors.component.scss'],
 })
 export class DoctorsComponent implements OnInit {
 
   settings = {
     columns: {
       id: {
-        title: 'ID'
+        title: 'ID',
       },
       firstName: {
-        title: 'First name'
+        title: 'First name',
       },
       lastName: {
-        title: 'Last name'
+        title: 'Last name',
       },
       departments: {
         title: 'Department ID',
         valuePrepareFunction: function(d) {
-          return d[0]["id"];
-        }
-      }
+          return d[0]['id'];
+        },
+      },
     },
     attr: {
-      class: 'table table-bordered table-striped table-hover table-sm'
-    }
+      class: 'table table-bordered table-striped table-hover table-sm',
+    },
   };
 
   data = [];
-  
+
   constructor() { }
 
   ngOnInit() {

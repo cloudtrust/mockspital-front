@@ -11,18 +11,18 @@ export class HospitalsComponent implements OnInit {
   settings = {
     columns: {
       id: {
-        title: 'ID'
+        title: 'ID',
       },
       name: {
-        title: 'Name'
+        title: 'Name',
       },
       city: {
-        title: 'City'
-      }
+        title: 'City',
+      },
     },
     attr: {
-      class: 'table table-bordered table-striped table-hover table-sm'
-    }
+      class: 'table table-bordered table-striped table-hover table-sm',
+    },
   };
 
   data = [];
