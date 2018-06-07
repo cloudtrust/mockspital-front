@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'files-component',
+  selector: 'ngx-files',
   templateUrl: './files.component.html',
   styleUrls: ['./files.component.scss']
 })
