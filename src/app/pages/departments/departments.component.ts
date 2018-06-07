@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'departments',
+  selector: 'departments-component',
   templateUrl: './departments.component.html',
   styleUrls: ['./departments.component.scss']
 })
