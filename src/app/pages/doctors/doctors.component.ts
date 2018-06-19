@@ -21,7 +21,7 @@ export class DoctorsComponent implements OnInit {
       },
       departments: {
         title: 'Department ID',
-        valuePrepareFunction: function(d) {
+        valuePrepareFunction: function (d) {
           return d[0]['id'];
         },
       },
@@ -33,11 +33,11 @@ export class DoctorsComponent implements OnInit {
 
   data = [];
 
-  constructor(private dataService : DataService) {
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
     this.dataService.getDoctors().subscribe(d => this.data = d);
   }
-  
+
 }

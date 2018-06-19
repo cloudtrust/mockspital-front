@@ -30,7 +30,7 @@ export class FilesComponent implements OnInit {
 
   data = [];
 
-  constructor(private dataService : DataService) {
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit() {

@@ -8,7 +8,6 @@ import { DataService } from '../../data.service';
 })
 export class HospitalsComponent implements OnInit {
 
-
   settings = {
     columns: {
       id: {
@@ -28,7 +27,7 @@ export class HospitalsComponent implements OnInit {
 
   data = [];
 
-  constructor(private dataService : DataService) {
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit() {

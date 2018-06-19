@@ -21,7 +21,7 @@ export class PatientsComponent implements OnInit {
       },
       birthDate: {
         title: 'Birthdate',
-        valuePrepareFunction: function(b) {
+        valuePrepareFunction: function (b) {
           return b.substring(0, 10);
         },
       },
@@ -36,7 +36,7 @@ export class PatientsComponent implements OnInit {
 
   data = [];
 
-  constructor(private dataService : DataService) {
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
