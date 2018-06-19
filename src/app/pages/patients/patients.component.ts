@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'ngx-patients',
@@ -35,9 +36,11 @@ export class PatientsComponent implements OnInit {
 
   data = [];
 
-  constructor() { }
+  constructor(private dataService : DataService) {
+  }
 
   ngOnInit() {
+    this.dataService.getPatients().subscribe(p => this.data = p);
   }
 
 }

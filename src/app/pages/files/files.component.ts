@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'ngx-files',
@@ -29,9 +30,11 @@ export class FilesComponent implements OnInit {
 
   data = [];
 
-  constructor() { }
+  constructor(private dataService : DataService) {
+  }
 
   ngOnInit() {
+    this.dataService.getMedicalFiles().subscribe(d => this.data = d);
   }
 
 }

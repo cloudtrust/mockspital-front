@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'ngx-departments',
@@ -29,9 +30,11 @@ export class DepartmentsComponent implements OnInit {
 
   data = [];
 
-  constructor() { }
+  constructor(private dataService : DataService) {
+  }
 
   ngOnInit() {
+    this.dataService.getDepartments().subscribe(d => this.data = d);
   }
 
 }
