@@ -9,7 +9,7 @@ import { EventSourcePolyfill } from 'ng-event-source';
 @Injectable({
   providedIn: 'root',
 })
-export class DataService {
+export class BackendService {
 
   eventSource: EventSourcePolyfill;
 

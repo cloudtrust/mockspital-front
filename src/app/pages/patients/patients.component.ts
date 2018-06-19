@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
+import { BackendService } from '../../@core/data/backend.service';
 
 @Component({
   selector: 'ngx-patients',
@@ -36,7 +36,7 @@ export class PatientsComponent implements OnInit {
 
   data = [];
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: BackendService) {
   }
 
   ngOnInit() {
