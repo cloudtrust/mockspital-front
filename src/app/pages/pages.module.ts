@@ -4,7 +4,6 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
-import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { DoctorsComponent } from './doctors/doctors.component';
@@ -20,7 +19,6 @@ const PAGES_COMPONENTS = [
     PagesRoutingModule,
     ThemeModule,
     DashboardModule,
-    MiscellaneousModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,
