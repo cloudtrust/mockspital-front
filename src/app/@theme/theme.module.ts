@@ -40,6 +40,8 @@ import {
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
 const NB_MODULES = [
@@ -58,6 +60,10 @@ const NB_MODULES = [
   NgbModule,
   NbSecurityModule, // *nbIsGranted directive
 ];
+
+const OTHER_MODULES = [
+  Ng2SmartTableModule,
+]
 
 const COMPONENTS = [
   SwitcherComponent,
@@ -92,8 +98,8 @@ const NB_THEME_PROVIDERS = [
 ];
 
 @NgModule({
-  imports: [...BASE_MODULES, ...NB_MODULES],
-  exports: [...BASE_MODULES, ...NB_MODULES, ...COMPONENTS, ...PIPES],
+  imports: [...BASE_MODULES, ...NB_MODULES, ...OTHER_MODULES],
+  exports: [...BASE_MODULES, ...NB_MODULES, ...OTHER_MODULES, ...COMPONENTS, ...PIPES],
   declarations: [...COMPONENTS, ...PIPES],
 })
 export class ThemeModule {
