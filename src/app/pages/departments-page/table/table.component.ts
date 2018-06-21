@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from '../../../@core/utils/backend.service';
+import { BusinessService } from '../../../@core/data/business.service';
 
 @Component({
   selector: 'ngx-departments-table',
@@ -31,11 +31,11 @@ export class DepartmentsTableComponent implements OnInit {
 
   data = [];
 
-  constructor(private dataService: BackendService) {
+  constructor(private business: BusinessService) {
   }
 
   ngOnInit() {
-    this.dataService.getDepartments().subscribe(d => this.data = d);
+    this.business.getDepartments().subscribe(d => this.data = d);
   }
 
 }

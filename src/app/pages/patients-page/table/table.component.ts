@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from '../../../@core/utils/backend.service';
+import { BusinessService } from '../../../@core/data/business.service';
 
 @Component({
   selector: 'ngx-patients-table',
@@ -37,11 +37,11 @@ export class PatientsTableComponent implements OnInit {
 
   data = [];
 
-  constructor(private dataService: BackendService) {
+  constructor(private business: BusinessService) {
   }
 
   ngOnInit() {
-    this.dataService.getPatients().subscribe(p => this.data = p);
+    this.business.getPatients().subscribe(p => this.data = p);
   }
 
 }

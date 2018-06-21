@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { UserService } from './users.service';
 import { StateService } from './state.service';
-import { BackendService } from '../utils/backend.service';
+import { BusinessService } from './business.service';
 
 const SERVICES = [
   UserService,
   StateService,
-  BackendService,
+  BusinessService,
 ];
 
 @NgModule({
