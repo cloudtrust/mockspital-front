@@ -4,7 +4,6 @@ import { BackendService } from '../../@core/data/backend.service';
 @Component({
   selector: 'ngx-files-page',
   templateUrl: './files-page.component.html',
-  styleUrls: ['./files-page.component.scss'],
 })
 export class FilesPageComponent implements OnInit {
 

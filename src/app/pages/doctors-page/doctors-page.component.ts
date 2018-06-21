@@ -4,7 +4,6 @@ import { BackendService } from '../../@core/data/backend.service';
 @Component({
   selector: 'ngx-doctors-page',
   templateUrl: './doctors-page.component.html',
-  styleUrls: ['./doctors-page.component.scss'],
 })
 export class DoctorsPageComponent implements OnInit {
 
