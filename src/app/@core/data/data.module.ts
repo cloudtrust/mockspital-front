@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UserService } from './users.service';
 import { StateService } from './state.service';
-import { BackendService } from './backend.service';
+import { BackendService } from '../utils/backend.service';
 
 const SERVICES = [
   UserService,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from '../../../@core/data/backend.service';
+import { BackendService } from '../../../@core/utils/backend.service';
 
 @Component({
   selector: 'ngx-doctors-table',
