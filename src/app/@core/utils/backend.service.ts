@@ -67,6 +67,7 @@ export class BackendService {
    * Queries to the backend
    */
   getHospitals(): Observable<Object[]> {
+    console.info('Obtaining all hospitals from the backend.');
     return this.http.get<Object[]>(this.backend + '/hospitals')
       .pipe(
         catchError(this.handleError('getHospitals', [])),
@@ -74,6 +75,7 @@ export class BackendService {
   }
 
   getDepartments(): Observable<Object[]> {
+    console.info('Obtaining all departments from the backend.');
     return this.http.get<Object[]>(this.backend + '/departments')
       .pipe(
         catchError(this.handleError('getDepartments', [])),
@@ -81,6 +83,7 @@ export class BackendService {
   }
 
   getDoctors(): Observable<Object[]> {
+    console.info('Obtaining all doctors from the backend.');
     return this.http.get<Object[]>(this.backend + '/doctors')
       .pipe(
         catchError(this.handleError('getDoctors', [])),
@@ -88,6 +91,7 @@ export class BackendService {
   }
 
   getPatients(): Observable<Object[]> {
+    console.info('Obtaining all patients from the backend.');
     return this.http.get<Object[]>(this.backend + '/patients')
       .pipe(
         catchError(this.handleError('getPatients', [])),
@@ -95,6 +99,7 @@ export class BackendService {
   }
 
   getMedicalFiles(): Observable<Object[]> {
+    console.info('Obtaining all medical files from the backend.');
     return this.http.get<Object[]>(this.backend + '/files')
       .pipe(
         catchError(this.handleError('getMedicalFiles', [])),
