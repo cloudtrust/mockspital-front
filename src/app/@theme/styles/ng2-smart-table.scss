@@ -1,0 +1,12 @@
+// This workaround prevents the Add/Delete/Edit button/links to be huge
+.nb-theme-default ng2-smart-table {
+    .ng2-smart-actions, .ng2-smart-actions-title-add {
+        a.ng2-smart-action {
+            &.ng2-smart-action-edit-edit,
+            &.ng2-smart-action-delete-delete,
+            & {
+                font-size: 1rem !important;
+            }
+        }
+    }
+}
