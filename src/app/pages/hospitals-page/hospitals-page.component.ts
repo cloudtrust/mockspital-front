@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../@core/data/backend.service';
 
 @Component({
-  selector: 'ngx-hospitals',
-  templateUrl: './hospitals.component.html',
-  styleUrls: ['./hospitals.component.scss'],
+  selector: 'ngx-hospitals-page',
+  templateUrl: './hospitals-page.component.html',
+  styleUrls: ['./hospitals-page.component.scss'],
 })
-export class HospitalsComponent implements OnInit {
+export class HospitalsPageComponent implements OnInit {
 
   settings = {
     columns: {

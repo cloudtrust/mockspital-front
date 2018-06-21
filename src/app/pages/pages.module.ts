@@ -4,11 +4,12 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
-import { HospitalsComponent } from './hospitals/hospitals.component';
-import { DepartmentsComponent } from './departments/departments.component';
-import { DoctorsComponent } from './doctors/doctors.component';
-import { PatientsComponent } from './patients/patients.component';
-import { FilesComponent } from './files/files.component';
+
+import { HospitalsPageComponent } from './hospitals-page/hospitals-page.component';
+import { DepartmentsPageComponent } from './departments-page/departments-page.component';
+import { DoctorsPageComponent } from './doctors-page/doctors-page.component';
+import { PatientsPageComponent } from './patients-page/patients-page.component';
+import { FilesPageComponent } from './files-page/files-page.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -22,11 +23,11 @@ const PAGES_COMPONENTS = [
   ],
   declarations: [
     ...PAGES_COMPONENTS,
-    HospitalsComponent,
-    DepartmentsComponent,
-    DoctorsComponent,
-    PatientsComponent,
-    FilesComponent,
+    HospitalsPageComponent,
+    DepartmentsPageComponent,
+    DoctorsPageComponent,
+    PatientsPageComponent,
+    FilesPageComponent,
   ],
 })
 export class PagesModule {

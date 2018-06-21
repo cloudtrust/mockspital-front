@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../@core/data/backend.service';
 
 @Component({
-  selector: 'ngx-files',
-  templateUrl: './files.component.html',
-  styleUrls: ['./files.component.scss'],
+  selector: 'ngx-files-page',
+  templateUrl: './files-page.component.html',
+  styleUrls: ['./files-page.component.scss'],
 })
-export class FilesComponent implements OnInit {
+export class FilesPageComponent implements OnInit {
 
   settings = {
     columns: {

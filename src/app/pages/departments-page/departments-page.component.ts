@@ -2,27 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../@core/data/backend.service';
 
 @Component({
-  selector: 'ngx-doctors',
-  templateUrl: './doctors.component.html',
-  styleUrls: ['./doctors.component.scss'],
+  selector: 'ngx-departments-page',
+  templateUrl: './departments-page.component.html',
+  styleUrls: ['./departments-page.component.scss'],
 })
-export class DoctorsComponent implements OnInit {
+export class DepartmentsPageComponent implements OnInit {
 
   settings = {
     columns: {
       id: {
         title: 'ID',
       },
-      firstName: {
-        title: 'First name',
+      name: {
+        title: 'Name',
       },
-      lastName: {
-        title: 'Last name',
-      },
-      departments: {
-        title: 'Department ID',
+      hospital: {
+        title: 'Hospital ID',
         valuePrepareFunction: function (d) {
-          return d[0]['id'];
+          return d['id'];
         },
       },
     },
@@ -37,7 +34,7 @@ export class DoctorsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getDoctors().subscribe(d => this.data = d);
+    this.dataService.getDepartments().subscribe(d => this.data = d);
   }
 
 }

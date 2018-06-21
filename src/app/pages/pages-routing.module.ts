@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HospitalsComponent } from './hospitals/hospitals.component';
-import { DepartmentsComponent } from './departments/departments.component';
-import { DoctorsComponent } from './doctors/doctors.component';
-import { PatientsComponent } from './patients/patients.component';
-import { FilesComponent } from './files/files.component';
+
+import { HospitalsPageComponent } from './hospitals-page/hospitals-page.component';
+import { DepartmentsPageComponent } from './departments-page/departments-page.component';
+import { DoctorsPageComponent } from './doctors-page/doctors-page.component';
+import { PatientsPageComponent } from './patients-page/patients-page.component';
+import { FilesPageComponent } from './files-page/files-page.component';
 
 const routes: Routes = [{
   path: '',
@@ -19,23 +20,23 @@ const routes: Routes = [{
     },
     {
       path: 'hospitals',
-      component: HospitalsComponent,
+      component: HospitalsPageComponent,
     },
     {
       path: 'departments',
-      component: DepartmentsComponent,
+      component: DepartmentsPageComponent,
     },
     {
       path: 'doctors',
-      component: DoctorsComponent,
+      component: DoctorsPageComponent,
     },
     {
       path: 'patients',
-      component: PatientsComponent,
+      component: PatientsPageComponent,
     },
     {
       path: 'files',
-      component: FilesComponent,
+      component: FilesPageComponent,
     },
     {
       path: '',
