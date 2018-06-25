@@ -10,13 +10,12 @@ const REFRESH_INTERVAL = 10000;
 @Injectable()
 export class BusinessService {
 
-
-  private caches: {
-    "departments": Observable<Object[]>;
-    "doctors": Observable<Object[]>;
-    "hospitals": Observable<Object[]>;
-    "patients": Observable<Object[]>;
-    "medical files": Observable<Object[]>;
+  caches: {
+    'departments': Observable<Object[]>;
+    'doctors': Observable<Object[]>;
+    'hospitals': Observable<Object[]>;
+    'patients': Observable<Object[]>;
+    'medical files': Observable<Object[]>;
   }
 
   constructor(private backend: BackendService) {
@@ -32,7 +31,7 @@ export class BusinessService {
       // For each tick make an http request to fetch new data
       caches[entityName] = timer$.pipe(
         switchMap(f),
-        shareReplay(CACHE_SIZE)
+        shareReplay(CACHE_SIZE),
       );
 
     } else {
@@ -42,22 +41,22 @@ export class BusinessService {
   }
 
   getHospitals(): Observable<Object[]> {
-    return this.getCached('hospitals', () => { return this.backend.getHospitals() });
+    return this.getCached('hospitals', () => this.backend.getHospitals());
   }
 
   getDepartments(): Observable<Object[]> {
-    return this.getCached('departments', () => { return this.backend.getDepartments() });
+    return this.getCached('departments', () => this.backend.getDepartments());
   }
 
   getDoctors(): Observable<Object[]> {
-    return this.getCached('doctors', () => { return this.backend.getDoctors() });
+    return this.getCached('doctors', () => this.backend.getDoctors());
   }
 
   getPatients(): Observable<Object[]> {
-    return this.getCached('patients', () => { return this.backend.getPatients() });
+    return this.getCached('patients', () => this.backend.getPatients());
   }
 
   getMedicalFiles(): Observable<Object[]> {
-    return this.getCached('medical files', () => { return this.backend.getMedicalFiles() });
+    return this.getCached('medical files', () => this.backend.getMedicalFiles());
   }
 }
