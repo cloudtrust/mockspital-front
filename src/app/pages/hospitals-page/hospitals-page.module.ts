@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { HospitalsPageComponent } from './hospitals-page.component';
-import { HospitalsTableComponent } from './table/table.component';
 
 @NgModule({
   imports: [
@@ -10,7 +9,6 @@ import { HospitalsTableComponent } from './table/table.component';
   ],
   declarations: [
     HospitalsPageComponent,
-    HospitalsTableComponent,
   ],
 })
 export class HospitalsPageModule { }

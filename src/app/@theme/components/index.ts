@@ -5,3 +5,8 @@ export * from './theme-settings/theme-settings.component';
 export * from './theme-switcher/theme-switcher.component';
 export * from './switcher/switcher.component';
 export * from './layout-direction-switcher/layout-direction-switcher.component'
+export * from './tables/departments-table.component'
+export * from './tables/doctors-table.component'
+export * from './tables/files-table.component'
+export * from './tables/hospitals-table.component'
+export * from './tables/patients-table.component'

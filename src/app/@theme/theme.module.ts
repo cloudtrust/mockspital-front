@@ -29,6 +29,11 @@ import {
   SwitcherComponent,
   LayoutDirectionSwitcherComponent,
   ThemeSwitcherComponent,
+  HospitalsTableComponent,
+  DepartmentsTableComponent,
+  DoctorsTableComponent,
+  FilesTableComponent,
+  PatientsTableComponent,
 } from './components';
 import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
 import {
@@ -66,6 +71,7 @@ const OTHER_MODULES = [
 ]
 
 const COMPONENTS = [
+  // Default ngx-admin components
   SwitcherComponent,
   LayoutDirectionSwitcherComponent,
   ThemeSwitcherComponent,
@@ -77,6 +83,13 @@ const COMPONENTS = [
   SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+
+  // Custom components
+  DepartmentsTableComponent,
+  DoctorsTableComponent,
+  FilesTableComponent,
+  HospitalsTableComponent,
+  PatientsTableComponent,
 ];
 
 const PIPES = [
