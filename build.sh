@@ -4,7 +4,7 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 rm -rf dist
-ng build
+ng build --prod --build-optimizer
 cd dist
 zip -r ../builds/dist_$1.zip *
 cd ..
