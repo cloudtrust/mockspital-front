@@ -10,25 +10,27 @@ const REFRESH_INTERVAL = 10000;
 @Injectable()
 export class BusinessService {
 
-  private departmentsCache$: Observable<Object[]>;
-  private doctorsCache$: Observable<Object[]>;
-  private hospitalsCache$: Observable<Object[]>;
-  private patientsCache$: Observable<Object[]>;
-  private medicalFilesCache$: Observable<Object[]>;
+
+  private caches: {
+    "departments": Observable<Object[]>;
+    "doctors": Observable<Object[]>;
+    "hospitals": Observable<Object[]>;
+    "patients": Observable<Object[]>;
+    "medical files": Observable<Object[]>;
+  }
 
   constructor(private backend: BackendService) {
   }
 
   // https://blog.thoughtram.io/angular/2018/03/05/advanced-caching-with-rxjs.html
 
-  private getCached(entityName: string, cache: Observable<Object[]>, f: () => Observable<Object[]>): Observable<Object[]> {
-    var cached = this.hospitalsCache$;
-    if (!cached) {
+  private getCached(entityName: string, f: () => Observable<Object[]>): Observable<Object[]> {
+    if (!caches[entityName]) {
       // Set up timer that ticks every X milliseconds
       const timer$ = timer(0, REFRESH_INTERVAL);
 
       // For each tick make an http request to fetch new data
-      this.hospitalsCache$ = timer$.pipe(
+      caches[entityName] = timer$.pipe(
         switchMap(f),
         shareReplay(CACHE_SIZE)
       );
@@ -36,26 +38,26 @@ export class BusinessService {
     } else {
       console.info('Obtaining all ' + entityName + ' from the cache.');
     }
-    return this.hospitalsCache$;
+    return caches[entityName];
   }
 
   getHospitals(): Observable<Object[]> {
-    return this.getCached('hospitals', this.hospitalsCache$, () => { return this.backend.getHospitals() });
+    return this.getCached('hospitals', () => { return this.backend.getHospitals() });
   }
 
   getDepartments(): Observable<Object[]> {
-    return this.getCached('departments', this.departmentsCache$, () => { return this.backend.getDepartments() });
+    return this.getCached('departments', () => { return this.backend.getDepartments() });
   }
 
   getDoctors(): Observable<Object[]> {
-    return this.getCached('doctors', this.doctorsCache$, () => { return this.backend.getDoctors() });
+    return this.getCached('doctors', () => { return this.backend.getDoctors() });
   }
 
   getPatients(): Observable<Object[]> {
-    return this.getCached('patients', this.patientsCache$, () => { return this.backend.getPatients() });
+    return this.getCached('patients', () => { return this.backend.getPatients() });
   }
 
   getMedicalFiles(): Observable<Object[]> {
-    return this.getCached('medical files', this.medicalFilesCache$, () => { return this.backend.getMedicalFiles() });
+    return this.getCached('medical files', () => { return this.backend.getMedicalFiles() });
   }
 }
