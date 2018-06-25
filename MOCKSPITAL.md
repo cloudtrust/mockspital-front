@@ -3,11 +3,7 @@
 ## Build
 
 ```bash
-ng build
-cd dist
-zip -r ../builds/dist_0.0.1.zip *
-cd ..
-rm -rf dist
+./build.sh
 ```
 
 ## Findings
