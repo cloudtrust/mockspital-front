@@ -24,7 +24,7 @@ export class DepartmentsTableComponent implements OnInit {
           return d['id'];
         },
       },
-    }
+    },
   });
 
   data = [];

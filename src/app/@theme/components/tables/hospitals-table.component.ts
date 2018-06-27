@@ -21,7 +21,7 @@ export class HospitalsTableComponent implements OnInit {
       city: {
         title: 'City',
       },
-    }
+    },
   });
 
   data = [];

@@ -1,5 +1,5 @@
 export function buildTableSettings(extraSettings) {
-  var globalSettings = {
+  const globalSettings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',

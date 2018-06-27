@@ -27,9 +27,9 @@ export class DoctorsTableComponent implements OnInit {
           return d[0]['id'];
         },
       },
-    }
+    },
   });
-  
+
   data = [];
 
   constructor(private business: BusinessService) {
