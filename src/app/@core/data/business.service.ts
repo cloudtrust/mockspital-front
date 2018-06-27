@@ -4,12 +4,16 @@ import { Observable } from 'rxjs';
 import { switchMap, shareReplay } from 'rxjs/operators';
 import { timer } from 'rxjs/observable/timer';
 
+// How many versions to keep in the cache
 const CACHE_SIZE = 1;
+
+// How often to refresh the cache
 const REFRESH_INTERVAL = 10000;
 
 @Injectable()
 export class BusinessService {
 
+  // This object contains the business caches
   caches: {
     'departments': Observable<Object[]>;
     'doctors': Observable<Object[]>;
@@ -21,8 +25,7 @@ export class BusinessService {
   constructor(private backend: BackendService) {
   }
 
-  // https://blog.thoughtram.io/angular/2018/03/05/advanced-caching-with-rxjs.html
-
+  // Inspiration : https://blog.thoughtram.io/angular/2018/03/05/advanced-caching-with-rxjs.html
   private getCached(entityName: string, f: () => Observable<Object[]>): Observable<Object[]> {
     if (!caches[entityName]) {
       // Set up timer that ticks every X milliseconds
@@ -35,7 +38,7 @@ export class BusinessService {
       );
 
     } else {
-      console.info('Obtaining all ' + entityName + ' from the cache.');
+      console.info('Obtaining all ' + entityName + ' from the cache...');
     }
     return caches[entityName];
   }
