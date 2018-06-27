@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BusinessService } from '../../../@core/data/business.service';
-import { buildTableSettings } from './global-settings';
+import { buildTableSettings, onDeleteConfirm } from './global-settings';
 
 @Component({
   selector: 'ngx-departments-table',
   template: `
-    <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    <ng2-smart-table [settings]="settings" [source]="data" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
   `,
 })
 export class DepartmentsTableComponent implements OnInit {
@@ -34,6 +34,10 @@ export class DepartmentsTableComponent implements OnInit {
 
   ngOnInit() {
     this.business.getDepartments().subscribe(d => this.data = d);
+  }
+
+  onDeleteConfirm(event) {
+    onDeleteConfirm(event);
   }
 
 }
