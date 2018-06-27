@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BusinessService } from '../../../@core/data/business.service';
+import { buildTableSettings } from './global-settings';
 
 @Component({
   selector: 'ngx-files-table',
@@ -9,7 +10,7 @@ import { BusinessService } from '../../../@core/data/business.service';
 })
 export class FilesTableComponent implements OnInit {
 
-  settings = {
+  settings = buildTableSettings({
     columns: {
       id: {
         title: 'ID',
@@ -24,10 +25,7 @@ export class FilesTableComponent implements OnInit {
         title: 'Data',
       },
     },
-    attr: {
-      class: 'table table-bordered table-striped table-hover table-sm',
-    },
-  };
+  });
 
   data = [];
 

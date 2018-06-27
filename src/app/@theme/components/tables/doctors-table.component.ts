@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BusinessService } from '../../../@core/data/business.service';
+import { buildTableSettings } from './global-settings';
 
 @Component({
   selector: 'ngx-doctors-table',
@@ -9,7 +10,7 @@ import { BusinessService } from '../../../@core/data/business.service';
 })
 export class DoctorsTableComponent implements OnInit {
 
-  settings = {
+  settings = buildTableSettings({
     columns: {
       id: {
         title: 'ID',
@@ -26,12 +27,9 @@ export class DoctorsTableComponent implements OnInit {
           return d[0]['id'];
         },
       },
-    },
-    attr: {
-      class: 'table table-bordered table-striped table-hover table-sm',
-    },
-  };
-
+    }
+  });
+  
   data = [];
 
   constructor(private business: BusinessService) {
