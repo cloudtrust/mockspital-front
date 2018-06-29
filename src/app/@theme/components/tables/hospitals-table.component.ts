@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { buildTableSettings, onDeleteConfirm } from './global-settings';
 import { LocalDataSource } from 'ng2-smart-table';
+import { HelpersService } from '../../../@core/utils/helpers.service';
 
 @Component({
   selector: 'ngx-hospitals-table',
@@ -10,7 +10,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 })
 export class HospitalsTableComponent {
 
-  settings = buildTableSettings({
+  settings = this.helpers.buildTableSettings({
     columns: {
       id: {
         title: 'ID',
@@ -24,11 +24,13 @@ export class HospitalsTableComponent {
     },
   });
 
+  constructor(private helpers: HelpersService) {}
+
   @Input()
   source: LocalDataSource;
 
   onDeleteConfirm(event) {
-    onDeleteConfirm(event);
+    this.helpers.onDeleteConfirm(event);
   }
 
 
