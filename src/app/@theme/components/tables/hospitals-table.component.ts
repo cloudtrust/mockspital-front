@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BusinessService } from '../../../@core/data/business.service';
+import { Component, Input } from '@angular/core';
 import { buildTableSettings, onDeleteConfirm } from './global-settings';
 import { LocalDataSource } from 'ng2-smart-table';
 
@@ -9,7 +8,7 @@ import { LocalDataSource } from 'ng2-smart-table';
     <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
   `,
 })
-export class HospitalsTableComponent implements OnInit {
+export class HospitalsTableComponent {
 
   settings = buildTableSettings({
     columns: {
@@ -25,13 +24,8 @@ export class HospitalsTableComponent implements OnInit {
     },
   });
 
-  source: LocalDataSource = new LocalDataSource();
-
-  constructor(private business: BusinessService) { }
-
-  ngOnInit() {
-    this.business.getHospitals().subscribe(h => this.source.load(h));
-  }
+  @Input()
+  source: LocalDataSource;
 
   onDeleteConfirm(event) {
     onDeleteConfirm(event);
