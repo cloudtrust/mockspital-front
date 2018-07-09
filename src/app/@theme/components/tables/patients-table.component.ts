@@ -1,45 +1,32 @@
 import { Component, Input } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-import { HelpersService } from '../../../@core/utils/helpers.service';
+import { Patient } from '../../../domain/patients';
 
 @Component({
   selector: 'ngx-patients-table',
   template: `
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+              <p-table [value]="patients">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Birthdate</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-patient>
+                    <tr>
+                        <td>{{patient.id}}</td>
+                        <td>{{patient.firstName}}</td>
+                        <td>{{patient.lastName}}</td>
+                        <td>{{patient.birthDate.substring(0, 10)}}</td>
+                    </tr>
+                </ng-template>
+              </p-table>
   `,
 })
 export class PatientsTableComponent {
 
-  settings = this.helpers.buildTableSettings({
-    columns: {
-      id: {
-        title: 'ID',
-      },
-      firstName: {
-        title: 'First name',
-      },
-      lastName: {
-        title: 'Last name',
-      },
-      birthDate: {
-        title: 'Birthdate',
-        valuePrepareFunction: function (b) {
-          return b.substring(0, 10);
-        },
-      },
-      avsNumber: {
-        title: 'AVS Number',
-      },
-    },
-  });
-
-  constructor(private helpers: HelpersService) {}
-
   @Input()
-  source: LocalDataSource;
-
-  onDeleteConfirm(event) {
-    this.helpers.onDeleteConfirm(event);
-  }
+  patients: Patient[];
 
 }

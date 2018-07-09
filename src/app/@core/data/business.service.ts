@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { switchMap, shareReplay } from 'rxjs/operators';
 import { timer } from 'rxjs/observable/timer';
 import { Hospital } from '../../domain/hospital';
+import { Doctor } from '../../domain/doctors';
+import { Department } from '../../domain/departements';
+import { Patient } from '../../domain/patients';
+import { File } from '../../domain/files';
 
 // How many versions to keep in the cache
 const CACHE_SIZE = 1;
@@ -16,11 +20,11 @@ export class BusinessService {
 
   // This object contains the business caches
   caches: {
-    'departments': Observable<any[]>;
-    'doctors': Observable<any[]>;
+    'departments': Observable<Department[]>;
+    'doctors': Observable<Doctor[]>;
     'hospitals': Observable<Hospital[]>;
-    'patients': Observable<any[]>;
-    'medical files': Observable<any[]>;
+    'patients': Observable<Patient[]>;
+    'medical files': Observable<File[]>;
   }
 
   constructor(private backend: BackendService) {

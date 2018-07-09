@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import { BusinessService } from '../../@core/data/business.service';
+import { Department } from '../../domain/departements';
 
 @Component({
   selector: 'ngx-departments-page',
@@ -8,12 +8,12 @@ import { BusinessService } from '../../@core/data/business.service';
 })
 export class DepartmentsPageComponent implements OnInit {
 
-  source: LocalDataSource = new LocalDataSource();
+  departments: Department[];
 
   constructor(private business: BusinessService) {
   }
 
   ngOnInit() {
-    this.business.getDepartments().subscribe(d => this.source.load(d));
+    this.business.getDepartments().subscribe(d => this.departments = d);
   }
 }

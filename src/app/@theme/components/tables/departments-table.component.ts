@@ -1,39 +1,30 @@
 import { Component, Input } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-import { HelpersService } from '../../../@core/utils/helpers.service';
+import { Department } from '../../../domain/departements';
 
 @Component({
   selector: 'ngx-departments-table',
   template: `
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+              <p-table [value]="departments">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Hospital ID</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-department>
+                    <tr>
+                        <td>{{department.id}}</td>
+                        <td>{{department.name}}</td>
+                        <td>{{department.hospital.id}}</td>
+                    </tr>
+                </ng-template>
+              </p-table>
   `,
 })
 export class DepartmentsTableComponent {
 
-  settings = this.helpers.buildTableSettings({
-    columns: {
-      id: {
-        title: 'ID',
-      },
-      name: {
-        title: 'Name',
-      },
-      hospital: {
-        title: 'Hospital ID',
-        valuePrepareFunction: function (d) {
-          return d['id'];
-        },
-      },
-    },
-  });
-
-  constructor(private helpers: HelpersService) {}
-
   @Input()
-  source: LocalDataSource;
-
-  onDeleteConfirm(event) {
-    this.helpers.onDeleteConfirm(event);
-  }
+  departments: Department[];
 
 }

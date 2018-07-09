@@ -1,39 +1,32 @@
 import { Component, Input } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-import { HelpersService } from '../../../@core/utils/helpers.service';
+import { File } from '../../../domain/files';
 
 @Component({
   selector: 'ngx-files-table',
   template: `
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+              <p-table [value]="files">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>Patient AVS Number</th>
+                        <th>Doctor ID</th>
+                        <th>Data</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-file>
+                    <tr>
+                        <td>{{file.id}}</td>
+                        <td>{{file.patientAvsNumber}}</td>
+                        <td>{{file.doctorId}}</td>
+                        <td>{{file.data}}</td>
+                    </tr>
+                </ng-template>
+              </p-table>
   `,
 })
 export class FilesTableComponent {
 
-  settings = this.helpers.buildTableSettings({
-    columns: {
-      id: {
-        title: 'ID',
-      },
-      patientAvsNumber: {
-        title: 'Patient AVS Number',
-      },
-      doctorId: {
-        title: 'Doctor ID',
-      },
-      data: {
-        title: 'Data',
-      },
-    },
-  });
-
-  constructor(private helpers: HelpersService) {}
-
   @Input()
-  source: LocalDataSource;
-
-  onDeleteConfirm(event) {
-    this.helpers.onDeleteConfirm(event);
-  }
+  files: File[];
 
 }

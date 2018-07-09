@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import { BusinessService } from '../../@core/data/business.service';
+import { Patient } from '../../domain/patients';
 
 @Component({
   selector: 'ngx-patients-page',
@@ -8,13 +8,13 @@ import { BusinessService } from '../../@core/data/business.service';
 })
 export class PatientsPageComponent implements OnInit {
 
-  source: LocalDataSource = new LocalDataSource();
+  patients: Patient[];
 
   constructor(private business: BusinessService) {
   }
 
   ngOnInit() {
-    this.business.getPatients().subscribe(p => this.source.load(p));
+    this.business.getPatients().subscribe(p => this.patients = p);
   }
 
 }

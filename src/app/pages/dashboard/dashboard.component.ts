@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import { BusinessService } from '../../@core/data/business.service';
 import { Hospital } from '../../domain/hospital';
+import { File } from '../../domain/files';
 
 @Component({
   selector: 'ngx-dashboard',
@@ -9,14 +9,14 @@ import { Hospital } from '../../domain/hospital';
 })
 export class DashboardComponent implements OnInit {
 
-  filesSource: LocalDataSource = new LocalDataSource();
+  files: File[];
   hospitals: Hospital[];
 
   constructor(private business: BusinessService) {
   }
 
   ngOnInit() {
-    this.business.getMedicalFiles().subscribe(f => this.filesSource.load(f));
+    this.business.getMedicalFiles().subscribe(f => this.files = f);
     this.business.getHospitals().subscribe(h => this.hospitals = h);
   }
 

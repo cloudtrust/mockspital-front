@@ -45,8 +45,6 @@ import {
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 
-import { Ng2SmartTableModule } from 'ng2-smart-table';
-
 import { TableModule } from 'primeng/table';
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
@@ -69,7 +67,6 @@ const NB_MODULES = [
 ];
 
 const OTHER_MODULES = [
-  Ng2SmartTableModule,
   TableModule,
 ]
 

@@ -6,6 +6,10 @@ import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { EventSourcePolyfill } from 'ng-event-source';
 import { Hospital } from '../../domain/hospital';
+import { Department } from '../../domain/departements';
+import { Doctor } from '../../domain/doctors';
+import { Patient } from '../../domain/patients';
+import { File } from '../../domain/files';
 
 @Injectable({
   providedIn: 'root',
@@ -75,33 +79,33 @@ export class BackendService {
     );
   }
 
-  getDepartments(): Observable<Object[]> {
+  getDepartments(): Observable<Department[]> {
     console.info('Obtaining all departments from the backend...');
-    return this.http.get<Object[]>(this.backend + '/departments')
+    return this.http.get<Department[]>(this.backend + '/departments')
       .pipe(
         catchError(this.handleError('getDepartments', [])),
     );
   }
 
-  getDoctors(): Observable<Object[]> {
+  getDoctors(): Observable<Doctor[]> {
     console.info('Obtaining all doctors from the backend...');
-    return this.http.get<Object[]>(this.backend + '/doctors')
+    return this.http.get<Doctor[]>(this.backend + '/doctors')
       .pipe(
         catchError(this.handleError('getDoctors', [])),
     );
   }
 
-  getPatients(): Observable<Object[]> {
+  getPatients(): Observable<Patient[]> {
     console.info('Obtaining all patients from the backend...');
-    return this.http.get<Object[]>(this.backend + '/patients')
+    return this.http.get<Patient[]>(this.backend + '/patients')
       .pipe(
         catchError(this.handleError('getPatients', [])),
     );
   }
 
-  getMedicalFiles(): Observable<Object[]> {
+  getMedicalFiles(): Observable<File[]> {
     console.info('Obtaining all medical files from the backend...');
-    return this.http.get<Object[]>(this.backend + '/files')
+    return this.http.get<File[]>(this.backend + '/files')
       .pipe(
         catchError(this.handleError('getMedicalFiles', [])),
     );

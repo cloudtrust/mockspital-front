@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import { BusinessService } from '../../@core/data/business.service';
+import { File } from '../../domain/files';
 
 @Component({
   selector: 'ngx-files-page',
@@ -8,13 +8,13 @@ import { BusinessService } from '../../@core/data/business.service';
 })
 export class FilesPageComponent implements OnInit {
 
-  source: LocalDataSource = new LocalDataSource();
+  files: File[];
 
   constructor(private business: BusinessService) {
   }
 
   ngOnInit() {
-    this.business.getMedicalFiles().subscribe(f => this.source.load(f));
+    this.business.getMedicalFiles().subscribe(f => this.files = f);
   }
 
 }
