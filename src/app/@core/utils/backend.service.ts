@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { EventSourcePolyfill } from 'ng-event-source';
+import { Hospital } from '../../domain/hospital';
 
 @Injectable({
   providedIn: 'root',
@@ -66,9 +67,9 @@ export class BackendService {
   /**
    * Queries to the backend
    */
-  getHospitals(): Observable<Object[]> {
+  getHospitals(): Observable<Hospital[]> {
     console.info('Obtaining all hospitals from the backend...');
-    return this.http.get<Object[]>(this.backend + '/hospitals')
+    return this.http.get<Hospital[]>(this.backend + '/hospitals')
       .pipe(
         catchError(this.handleError('getHospitals', [])),
     );

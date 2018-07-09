@@ -3,6 +3,7 @@ import { BackendService } from '../utils/backend.service';
 import { Observable } from 'rxjs';
 import { switchMap, shareReplay } from 'rxjs/operators';
 import { timer } from 'rxjs/observable/timer';
+import { Hospital } from '../../domain/hospital';
 
 // How many versions to keep in the cache
 const CACHE_SIZE = 1;
@@ -15,11 +16,11 @@ export class BusinessService {
 
   // This object contains the business caches
   caches: {
-    'departments': Observable<Object[]>;
-    'doctors': Observable<Object[]>;
-    'hospitals': Observable<Object[]>;
-    'patients': Observable<Object[]>;
-    'medical files': Observable<Object[]>;
+    'departments': Observable<any[]>;
+    'doctors': Observable<any[]>;
+    'hospitals': Observable<Hospital[]>;
+    'patients': Observable<any[]>;
+    'medical files': Observable<any[]>;
   }
 
   constructor(private backend: BackendService) {
@@ -43,23 +44,23 @@ export class BusinessService {
     return caches[entityName];
   }
 
-  getHospitals(): Observable<Object[]> {
+  getHospitals(): Observable<any[]> {
     return this.getCached('hospitals', () => this.backend.getHospitals());
   }
 
-  getDepartments(): Observable<Object[]> {
+  getDepartments(): Observable<any[]> {
     return this.getCached('departments', () => this.backend.getDepartments());
   }
 
-  getDoctors(): Observable<Object[]> {
+  getDoctors(): Observable<any[]> {
     return this.getCached('doctors', () => this.backend.getDoctors());
   }
 
-  getPatients(): Observable<Object[]> {
+  getPatients(): Observable<any[]> {
     return this.getCached('patients', () => this.backend.getPatients());
   }
 
-  getMedicalFiles(): Observable<Object[]> {
+  getMedicalFiles(): Observable<any[]> {
     return this.getCached('medical files', () => this.backend.getMedicalFiles());
   }
 }
