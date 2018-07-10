@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
 import { EventSourcePolyfill } from 'ng-event-source';
 import { Hospital } from '../../domain/hospital';
 import { Department } from '../../domain/departements';

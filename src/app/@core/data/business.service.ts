@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BackendService } from '../utils/backend.service';
-import { Observable } from 'rxjs';
+import { Observable ,  timer } from 'rxjs';
 import { switchMap, shareReplay } from 'rxjs/operators';
-import { timer } from 'rxjs/observable/timer';
 import { Hospital } from '../../domain/hospital';
 import { Doctor } from '../../domain/doctors';
 import { Department } from '../../domain/departements';
