@@ -1,10 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { File } from '../../../domain/files';
+import { LazyLoadEvent } from 'primeng/components/common/api';
 
 @Component({
   selector: 'ngx-files-table',
   template: `
-              <p-table [value]="files" [paginator]="true" [rows]="rows">
+              <p-table [value]="files" [paginator]="true" [rows]="rows" [lazy]="true"
+                       [totalRecords]="totalRecords" (onLazyLoad)="valueChanged($event)">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>ID</th>
@@ -31,5 +33,15 @@ export class FilesTableComponent {
 
   @Input()
   rows: number = 10;
+
+  @Output() valueChange = new EventEmitter<LazyLoadEvent>();
+
+  totalRecords: number = 33;
+
+  valueChanged(event: LazyLoadEvent) {
+    console.info('Event caught by child (' + JSON.stringify(event) + ')');
+    console.info('this.valueChange = ' + JSON.stringify(this.valueChange));
+    this.valueChange.emit(event);
+  }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BusinessService } from '../../@core/data/business.service';
 import { File } from '../../domain/files';
+import { LazyLoadEvent } from 'primeng/components/common/api';
 
 @Component({
   selector: 'ngx-files-page',
@@ -15,6 +16,10 @@ export class FilesPageComponent implements OnInit {
 
   ngOnInit() {
     this.business.getMedicalFiles().subscribe(f => this.files = f);
+  }
+
+  valueChanged(event: LazyLoadEvent) {
+    console.info('Event caught by parent (' + JSON.stringify(event) + ')');
   }
 
 }
