@@ -4,7 +4,7 @@ import { File } from '../../../domain/files';
 @Component({
   selector: 'ngx-files-table',
   template: `
-              <p-table [value]="files">
+              <p-table [value]="files" [paginator]="true" [rows]="rows">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>ID</th>
@@ -28,5 +28,8 @@ export class FilesTableComponent {
 
   @Input()
   files: File[];
+
+  @Input()
+  rows: number = 10;
 
 }
