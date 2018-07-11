@@ -66,4 +66,8 @@ export class BusinessService {
   getMedicalFiles(): Observable<any[]> {
     return this.getCached('medical files', () => this.backend.getMedicalFiles());
   }
+
+  getMedicalFilesRange(first, rows): Observable<any[]> {
+    return this.backend.getMedicalFilesRange(first, rows);
+  }
 }

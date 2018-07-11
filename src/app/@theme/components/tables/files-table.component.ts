@@ -5,8 +5,8 @@ import { LazyLoadEvent } from 'primeng/components/common/api';
 @Component({
   selector: 'ngx-files-table',
   template: `
-              <p-table [value]="files" [paginator]="true" [rows]="rows" [lazy]="true"
-                       [totalRecords]="totalRecords" (onLazyLoad)="onLazyLoad.emit($event)">
+              <p-table [value]="files" [paginator]="true" [rows]="pageSize" [lazy]="true"
+                       [totalRecords]="filesCount" (onLazyLoad)="onLazyLoad.emit($event)">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>ID</th>
@@ -32,11 +32,13 @@ export class FilesTableComponent {
   files: File[];
 
   @Input()
-  rows: number = 10;
+  filesCount: number;
+
+  @Input()
+  pageSize: number = 10;
 
   @Output()
   onLazyLoad = new EventEmitter<LazyLoadEvent>();
 
-  totalRecords: number = 33;
 
 }

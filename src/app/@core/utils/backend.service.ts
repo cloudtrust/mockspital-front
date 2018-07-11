@@ -110,6 +110,15 @@ export class BackendService {
     );
   }
 
+  getMedicalFilesRange(first, rows): Observable<File[]> {
+    console.info('Obtaining some medical files from the backend (' + first + ',' + rows + ')...');
+    return this.http.get<File[]>(this.backend + '/files?first=' + first + '&rows=' + rows)
+      .pipe(
+        catchError(this.handleError('getMedicalFiles', [])),
+    );
+  }
+
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
