@@ -18,8 +18,8 @@ export class FilesPageComponent implements OnInit {
     this.business.getMedicalFiles().subscribe(f => this.files = f);
   }
 
-  valueChanged(event: LazyLoadEvent) {
-    console.info('Event caught by parent (' + JSON.stringify(event) + ')');
+  onLazyLoad(event: LazyLoadEvent) {
+    console.info('Lazy load triggered!');
   }
 
 }

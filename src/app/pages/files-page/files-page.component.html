@@ -4,7 +4,7 @@
           Files
       </nb-card-header>
       <nb-card-body>
-        <ngx-files-table [files]="files" (valueChange)="valueChanged($event)"></ngx-files-table>
+        <ngx-files-table [files]="files" (onLazyLoad)="onLazyLoad($event)"></ngx-files-table>
       </nb-card-body>
     </nb-card>
   </div>
