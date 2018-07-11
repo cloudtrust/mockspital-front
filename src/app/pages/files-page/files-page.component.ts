@@ -12,11 +12,17 @@ export class FilesPageComponent {
   @Output()
   files: File[];
 
+  @Output()
+  filesCount: number;
+
   constructor(private business: BusinessService) {
   }
 
   onLazyLoad(event: LazyLoadEvent) {
-    this.business.getMedicalFilesRange(event.first, event.rows).subscribe(f => this.files = f);
+    this.business.getMedicalFilesRange(event.first, event.rows).subscribe(p => {
+      this.files = p['data'];
+      this.filesCount = p['count'];
+    });
   }
 
 }
